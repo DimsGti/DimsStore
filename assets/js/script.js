@@ -157,3 +157,16 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const popupContainer = document.getElementById("popupContainer");
+  const closeBtn = document.getElementById("closeBtn");
+
+  // Tampilkan popup ketika halaman dimuat
+  popupContainer.style.display = "block";
+
+  // Sembunyikan popup saat tombol close ditekan
+  closeBtn.addEventListener("click", function() {
+    popupContainer.style.display = "none";
+  });
+});
