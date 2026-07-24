@@ -1,28 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dims Store</title>
+  <title>Dims Store — Joki Blox Fruit Premium</title>
 
-  <!--
-    - favicon
-  -->
   <link rel="shortcut icon" href="./assets/images/yelow.jpg" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -34,29 +25,52 @@
     </div>
   </div>
 
+  <!-- ===== ADMIN: floating unlock button ===== -->
+  <button id="adminFab" class="admin-fab" title="Admin">
+    <ion-icon name="lock-closed-outline"></ion-icon>
+  </button>
+
+  <!-- ===== ADMIN: PIN modal ===== -->
+  <div id="adminModalOverlay" class="admin-modal-overlay">
+    <div class="admin-modal">
+      <h3>Mode Admin</h3>
+      <p>Masukkan PIN untuk mengubah nama &amp; harga item.</p>
+      <input type="password" id="adminPinInput" inputmode="numeric" maxlength="12" placeholder="••••">
+      <p class="admin-error" id="adminError"></p>
+      <button class="admin-modal-btn" id="adminPinSubmit">Masuk</button>
+      <button class="admin-modal-cancel" id="adminPinCancel">Batal</button>
+    </div>
+  </div>
+
+  <!-- ===== ADMIN: bottom bar (visible only in edit mode) ===== -->
+  <div class="admin-bar" id="adminBar">
+    <div class="admin-bar-status"><ion-icon name="create-outline"></ion-icon> Mode edit aktif</div>
+    <div class="admin-bar-actions">
+      <button class="admin-btn exit" id="adminExitBtn">Keluar</button>
+      <button class="admin-btn save" id="adminSaveBtn">Simpan Perubahan</button>
+    </div>
+  </div>
+
+  <div class="admin-toast" id="adminToast"></div>
+
   <main>
 
-    <!--
-      - #SIDEBAR
-    -->
-
+    <!-- #SIDEBAR -->
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/yelow.jpg" alt="Richard hanrick" width="80">
+          <img src="./assets/images/yelow.jpg" alt="Dims Store" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Dims Store</h1>
-
-          <p class="title">Youtuber</p>
+          <h1 class="name" title="Dims Store">Dims Store</h1>
+          <p class="title">Joki Blox Fruit</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
+          <span>Kontak</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
@@ -69,45 +83,27 @@
         <ul class="contacts-list">
 
           <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
+            <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
             <div class="contact-info">
               <p class="contact-title">Email</p>
-
               <a href="mailto:dgames1945@gmail.com" class="contact-link">dgames1945@gmail.com</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
+            <div class="icon-box"><ion-icon name="phone-portrait-outline"></ion-icon></div>
             <div class="contact-info">
-              <p class="contact-title">whatsapp</p>
-
+              <p class="contact-title">Whatsapp</p>
               <a href="https://wa.me/6285848995760" class="contact-link">0858 4899 5760</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
+            <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
             <div class="contact-info">
-              <p class="contact-title">Sience</p>
-
-              <time datetime="1982-06-23">4 January 2023</time>
+              <p class="contact-title">Berdiri Sejak</p>
+              <time datetime="2023-01-04">4 Januari 2023</time>
             </div>
-
           </li>
 
         </ul>
@@ -115,380 +111,180 @@
         <div class="separator"></div>
 
         <ul class="social-list">
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
+          <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
         </ul>
 
       </div>
 
     </aside>
 
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
-      -->
-
+      <!-- #NAVBAR -->
       <nav class="navbar">
-
         <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Joki Blox Fruit</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Stock Akun</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Testi</button>
-          </li>
-
+          <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Joki Blox Fruit</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Stock Akun</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Testi</button></li>
         </ul>
-
       </nav>
 
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
+      <!-- #ABOUT -->
+      <article class="about active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">Dims Joki
+          <p class="eyebrow">Sejak 2023</p>
+          <h2 class="h2 article-title">Dims Joki</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Store Ini Sudah Berdiri Sejak Januari 2023, Dan Sudah Melayani Lebih Dari 1000 Customer
-          </p>
-
-          <p>
-            Joki Disini 100% Aman, Karena Dikerjakan Oleh Penjoki Professional Dan Akun Kalian Bakal Aman
-          </p>
+          <p>Store ini sudah berdiri sejak Januari 2023, dan sudah melayani lebih dari 1000 customer dengan kepuasan sebagai prioritas utama.</p>
+          <p>Joki di sini 100% aman, karena dikerjakan oleh penjoki profesional — akun kalian dijamin aman selama proses pengerjaan.</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">Dims Store Ada Apa Aja Sih?
-          </h3>
-
-          <ul class="service-list">
-
-        
-
-            <li class="service-item">
-            <button class="h4 service-item-title" data-nav-link>Joki Blox Fruit</button>
-            </li>
-
-          
-
-            <li class="service-item">
-              <button class="h4 service-item-title" data-nav-link>Stock Akun</button>
-              </li>
-
-          </ul>
-
-        </section>
-
-
-        
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-num">1000+</div><div class="stat-label">Customer</div></div>
+          <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Aman</div></div>
+          <div class="stat-card"><div class="stat-num">2023</div><div class="stat-label">Berdiri</div></div>
         </div>
 
+        <section class="service">
+          <h3 class="h3 service-title">Dims Store Ada Apa Aja Sih?</h3>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-content-box">
+                <button class="h4 service-item-title" data-nav-link>Joki Blox Fruit</button>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-content-box">
+                <button class="h4 service-item-title" data-nav-link>Stock Akun</button>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <div class="modal-container" data-modal-container>
+          <div class="overlay" data-overlay></div>
+          <section class="testimonials-modal">
+            <button class="modal-close-btn" data-modal-close-btn><ion-icon name="close-outline"></ion-icon></button>
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box"><img src="./assets/images/avatar-1.png" alt="" width="80" data-modal-img></figure>
+            </div>
+            <div class="modal-content">
+              <h4 class="h3 modal-title" data-modal-title></h4>
+              <time datetime="2021-06-14"></time>
+              <div data-modal-text></div>
+            </div>
+          </section>
+        </div>
 
       </article>
 
-
-
-      <!--
-        - #JOKI BF
-      -->
-
+      <!-- #JOKI BF -->
       <article class="portfolio" data-page="joki blox fruit">
 
         <header>
+          <p class="eyebrow">Layanan</p>
           <h2 class="h2 article-title">Joki Blox Fruit</h2>
         </header>
 
         <section class="projects">
 
           <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Rekomendasi</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Melle Sword Gun</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Starter</button>
-            </li>
-
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>Rekomendasi</button></li>
+            <li class="filter-item"><button data-filter-btn>Melle Sword Gun</button></li>
+            <li class="filter-item"><button data-filter-btn>Starter</button></li>
           </ul>
 
           <div class="filter-select-box">
-
             <button class="filter-select" data-select>
-
               <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
             </button>
-
             <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Rekomendasi</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Melle Sword Gun</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Starter</button>
-              </li>
-
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Rekomendasi</button></li>
+              <li class="select-item"><button data-select-item>Melle Sword Gun</button></li>
+              <li class="select-item"><button data-select-item>Starter</button></li>
             </ul>
-
           </div>
 
           <ul class="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="rekomendasi">
+            <li class="project-item active" data-filter-item data-category="rekomendasi">
               <a>
-
-                <figure class="project-img">
-                 
-
-                  <img src="./assets/images/racev4.png" loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/racev4.png" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Race V4</button>
-
                 <p class="project-category">Awakening Race V4</p>
-
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="starter">
+            <li class="project-item active" data-filter-item data-category="starter">
               <a>
-
-                <figure class="project-img">
-                  
-
-                  <img src="./assets/images/level.png" alt="orizon" loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/level.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Level</button>
-
                 <p class="project-category">Joki Leveling</p>
-
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="starter">
+            <li class="project-item active" data-filter-item data-category="starter">
               <a>
-
-                <figure class="project-img">
-                  
-
-                  <img src="./assets/images/mastery.png" alt="fundo" loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/mastery.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Mastery</button>
-
                 <p class="project-category">Mastery Melee Fruit Sword</p>
-
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="melle sword gun">
+            <li class="project-item active" data-filter-item data-category="melle sword gun">
               <a>
-
-                <figure class="project-img">
-                  
-
-                  <img src="./assets/images/sword.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/sword.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Sword</button>
-
                 <p class="project-category">CDK TTK Hallow Schyte</p>
-
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="rekomendasi">
+            <li class="project-item active" data-filter-item data-category="rekomendasi">
               <a>
-
-                <figure class="project-img">
-                  
-
-                  <img src="./assets/images/racev4.png" alt="dsm." loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/racev4.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Legendary Race</button>
-
-                <p class="project-category">Get Race Cyborg & Ghoul</p>
-
+                <p class="project-category">Get Race Cyborg &amp; Ghoul</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="melle sword gun">
+            <li class="project-item active" data-filter-item data-category="melle sword gun">
               <a>
-
-                <figure class="project-img">
-                 
-
-                  <img src="./assets/images/sword.png" alt="metaspark" loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/sword.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Mythical Gun</button>
-
                 <p class="project-category">Soul Guitar</p>
-
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="melle sword gun">
-              <a href="">
-
-                <figure class="project-img">
-                  
-
-                  <img src="./assets/images/db.png" alt="summary" loading="lazy">
-                </figure>
-
+            <li class="project-item active" data-filter-item data-category="melle sword gun">
+              <a>
+                <figure class="project-img"><img src="./assets/images/db.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Darkblade V3</button>
-
                 <p class="project-category">Getting Tittle Slayer Of God</p>
-
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="starter">
+            <li class="project-item active" data-filter-item data-category="starter">
               <a>
-
-                <figure class="project-img">
-                  
-
-                  <img src="./assets/images/belly.png" alt="task manager" loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/belly.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Belly Fragmen</button>
-
-                <p class="project-category">Only Second Sea & Third Sea</p>
-
+                <p class="project-category">Only Second Sea &amp; Third Sea</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="starter">
+            <li class="project-item active" data-filter-item data-category="starter">
               <a>
-
-                <figure class="project-img">
-                  
-
-                  <img src="./assets/images/racev4.png" alt="arrival" loading="lazy">
-                </figure>
-
+                <figure class="project-img"><img src="./assets/images/racev4.png" alt="" loading="lazy"></figure>
                 <button class="project-title" data-nav-link>Mythical Item</button>
-
-                <p class="project-category">Miror Fractral Monser Magnet</p>
-
+                <p class="project-category">Miror Fractral Monster Magnet</p>
               </a>
             </li>
 
@@ -498,16 +294,11 @@
 
       </article>
 
-
-
-      <!--
-        - #Stock
-      
-      -->
-
+      <!-- #Stock -->
       <article class="blog" data-page="stock akun">
 
         <header>
+          <p class="eyebrow">Ready Stock</p>
           <h2 class="h2 article-title">Stock Akun Blox Fruit</h2>
         </header>
 
@@ -517,791 +308,495 @@
 
             <li class="blog-post-item">
               <a href="https://wa.link/v59amk">
-
-                <figure class="blog-banner-box">
-                  <img src="assets/images/FGMINK.PNG" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
+                <figure class="blog-banner-box"><img src="assets/images/FGMINK.PNG" alt="" loading="lazy"></figure>
                 <div class="blog-content">
-
                   <div class="blog-meta">
-                    <p class="blog-category">Harga 45.000</p>
+                    <p class="blog-category">Harga <span class="editable price-value" data-id="stock-mink" data-field="price" contenteditable="false">45000</span></p>
                   </div>
-
-                  <h3 class="h3 blog-item-title">Akun V4 Mink Full Gear</h3>
-
-                  <p class="blog-text">
-                    Akun Data Polos No Topi (SOLD)
-                  </p>
-
+                  <h3 class="h3 blog-item-title editable" data-id="stock-mink" data-field="title" contenteditable="false">Akun V4 Mink Full Gear</h3>
+                  <p class="blog-text">Akun Data Polos No Topi (SOLD)</p>
                 </div>
-
               </a>
             </li>
-
-          </ul>
-
-          <ul class="blog-posts-list">
 
             <li class="blog-post-item">
               <a href="https://wa.link/v59amk">
-
-                <figure class="blog-banner-box">
-                  <img src="assets/images/FGHUMAN.PNG" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
+                <figure class="blog-banner-box"><img src="assets/images/FGHUMAN.PNG" alt="" loading="lazy"></figure>
                 <div class="blog-content">
-
                   <div class="blog-meta">
-                    <p class="blog-category">Harga 45.000</p>
+                    <p class="blog-category">Harga <span class="editable price-value" data-id="stock-human" data-field="price" contenteditable="false">45000</span></p>
                   </div>
-
-                  <h3 class="h3 blog-item-title">Akun V4 Human Full Gear</h3>
-
-                  <p class="blog-text">
-                    Akun Data Polos No Topi (SOLD)
-                  </p>
-
+                  <h3 class="h3 blog-item-title editable" data-id="stock-human" data-field="title" contenteditable="false">Akun V4 Human Full Gear</h3>
+                  <p class="blog-text">Akun Data Polos No Topi (SOLD)</p>
                 </div>
-
               </a>
             </li>
 
           </ul>
-
-          
 
         </section>
 
       </article>
 
-      <!--
-        - #Testimoni
-      
-      -->
-
+      <!-- #Testimoni -->
       <article class="blog" data-page="testi">
 
         <header>
+          <p class="eyebrow">Kata Mereka</p>
           <h2 class="h2 article-title">Testimoni</h2>
         </header>
 
         <section class="blog-posts">
-
           <ul class="blog-posts-list">
-
             <li class="blog-post-item">
               <a href="https://www.facebook.com/photo/?fbid=297920559268510&set=a.106590381734863&locale=id_ID">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/testi.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
+                <figure class="blog-banner-box"><img src="./assets/images/testi.jpg" alt="" loading="lazy"></figure>
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">Testi</p>
-
                     <span class="dot"></span>
-
-                    <time datetime="2022-02-23">10 January 2024</time>
+                    <time datetime="2024-01-10">10 Januari 2024</time>
                   </div>
-
                   <h3 class="h3 blog-item-title">Testimoni Dims Store</h3>
-
-                  <p class="blog-text">
-                    Untuk Testimoni Bisa Klik Gambar Diatas.
-                  </p>
-
+                  <p class="blog-text">Untuk testimoni bisa klik gambar di atas.</p>
                 </div>
-
               </a>
             </li>
-
           </ul>
-
         </section>
 
       </article>
 
-            <!--
-        - #Race V4
-      -->
-
+      <!-- #Race V4 -->
       <article class="blog" data-page="race v4">
 
         <header>
-          <h2 class="h2 article-title">Awakening Race V4
+          <p class="eyebrow">Awakening</p>
+          <h2 class="h2 article-title">Awakening Race V4</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Race Awakening (juga dikenal sebagai Race V4) ditambahkan pada 6 Januari 2023, sebagai cara untuk meningkatkan level race pemain lebih jauh lagi. Itu dapat diperoleh di Laut Ketiga.
-          </p>
-
-          <p>
-            Untuk Meng Awakening Race Ke V4 Item Yang Dibutuhkan Adalah Miror Fractral Dan Sudah Membunuh Rip Indra
-          </p>
+          <p>Race Awakening (juga dikenal sebagai Race V4) ditambahkan pada 6 Januari 2023, sebagai cara untuk meningkatkan level race pemain lebih jauh lagi. Item ini dapat diperoleh di Laut Ketiga.</p>
+          <p>Untuk meng-awakening race ke V4, item yang dibutuhkan adalah Mirror Fractral dan sudah membunuh Rip Indra.</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Joki Awakening Race V4
-          </h3>
-
+          <h3 class="h3 service-title">Harga Joki Awakening Race V4</h3>
           <ul class="service-list">
 
             <li class="service-item">
               <a href="https://wa.link/ajzq2k">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Pull Lever</h4>
-
-                <p class="service-item-text">
-                  15.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="pull-lever" data-field="title" contenteditable="false">Pull Lever</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="pull-lever" data-field="price" contenteditable="false">15000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/jnw35t">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Gear 1</h4>
-
-                <p class="service-item-text">
-                  10.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="gear1" data-field="title" contenteditable="false">Gear 1</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="gear1" data-field="price" contenteditable="false">10000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/jnw35t">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Gear 2</h4>
-
-                <p class="service-item-text">
-                  10.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="gear2" data-field="title" contenteditable="false">Gear 2</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="gear2" data-field="price" contenteditable="false">10000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/jnw35t">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Gear 3</h4>
-
-                <p class="service-item-text">
-                  10.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="gear3" data-field="title" contenteditable="false">Gear 3</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="gear3" data-field="price" contenteditable="false">10000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/jnw35t">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Gear 4</h4>
-
-                <p class="service-item-text">
-                  10.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="gear4" data-field="title" contenteditable="false">Gear 4</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="gear4" data-field="price" contenteditable="false">10000</span></p>
+                </div>
               </a>
-
             </li>
 
-            <li class="service-item">
+            <li class="service-item is-featured">
               <a href="https://wa.link/6din2z">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Full Gear</h4>
-
-                <p class="service-item-text">
-                  40.000
-                </p>
-              </div>
-
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="fullgear-race" data-field="title" contenteditable="false">Full Gear</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="fullgear-race" data-field="price" contenteditable="false">40000</span></p>
+                </div>
+              </a>
             </li>
-            </a>
 
           </ul>
-
         </section>
 
       </article>
 
-                  <!--
-        - #Level
-      -->
-
+      <!-- #Level -->
       <article class="blog" data-page="level">
 
         <header>
-          <h2 class="h2 article-title">Joki Level
+          <p class="eyebrow">Leveling</p>
+          <h2 class="h2 article-title">Joki Level</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Asal Kalian Tau Ya, Semakin Tinggi Level Kalian Maka Kalian Akan Semakin Kuat.
-          </p>
-
-          <p>
-            Skuyy..
+          <p>Asal kalian tau ya, semakin tinggi level kalian maka kalian akan semakin kuat.</p>
+          <p>Skuyy..</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Joki Level Blox Ftuit
-          </h3>
-
+          <h3 class="h3 service-title">Harga Joki Level Blox Fruit</h3>
           <ul class="service-list">
 
             <li class="service-item">
               <a href="https://wa.link/yqbb02">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">200 Level</h4>
-
-                <p class="service-item-text">
-                  4.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="lvl200" data-field="title" contenteditable="false">200 Level</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="lvl200" data-field="price" contenteditable="false">4000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/54xqhw">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">500 Level</h4>
-
-                <p class="service-item-text">
-                  9.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="lvl500" data-field="title" contenteditable="false">500 Level</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="lvl500" data-field="price" contenteditable="false">9000</span></p>
+                </div>
               </a>
-
             </li>
 
-            <li class="service-item">
+            <li class="service-item is-featured">
               <a href="https://wa.link/wqoc1o">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">1000 Level</h4>
-
-                <p class="service-item-text">
-                  18.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="lvl1000" data-field="title" contenteditable="false">1000 Level</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="lvl1000" data-field="price" contenteditable="false">18000</span></p>
+                </div>
               </a>
-
             </li>
-
-            </a>
 
           </ul>
-
         </section>
 
       </article>
 
-                        <!--
-        - #Level
-      -->
-
+      <!-- #Mastery -->
       <article class="blog" data-page="mastery">
 
         <header>
-          <h2 class="h2 article-title">Joki Mastery
+          <p class="eyebrow">Mastery</p>
+          <h2 class="h2 article-title">Joki Mastery</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Mastery Fruit Sword Melee
-          </p>
-
-          <p>
-            Skuyy..
+          <p>Mastery Fruit Sword Melee.</p>
+          <p>Skuyy..</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Joki Mastery
-          </h3>
-
+          <h3 class="h3 service-title">Harga Joki Mastery</h3>
           <ul class="service-list">
 
             <li class="service-item">
               <a href="https://wa.link/g47l3a">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Sword All Skill</h4>
-
-                <p class="service-item-text">
-                  8.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="mastery-sword" data-field="title" contenteditable="false">Sword All Skill</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="mastery-sword" data-field="price" contenteditable="false">8000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/fblhx7">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Melee All Skill</h4>
-
-                <p class="service-item-text">
-                  8.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="mastery-melee" data-field="title" contenteditable="false">Melee All Skill</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="mastery-melee" data-field="price" contenteditable="false">8000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/7m1ihu">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Fruit All Skill</h4>
-
-                <p class="service-item-text">
-                  8.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="mastery-fruit" data-field="title" contenteditable="false">Fruit All Skill</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="mastery-fruit" data-field="price" contenteditable="false">8000</span></p>
+                </div>
               </a>
-
             </li>
 
-            </a>
-
           </ul>
-
         </section>
 
       </article>
 
-                              <!--
-        - #sworrd
-      -->
-
+      <!-- #Sword -->
       <article class="blog" data-page="sword">
 
         <header>
-          <h2 class="h2 article-title">Joki Sword
+          <p class="eyebrow">Weapon</p>
+          <h2 class="h2 article-title">Joki Sword</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Get Sword Mulai Dari Legendary Sampai Mythical
-          </p>
-
-          <p>
-            Skuyy..
+          <p>Get Sword mulai dari Legendary sampai Mythical.</p>
+          <p>Skuyy..</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Get Sword
-          </h3>
-
+          <h3 class="h3 service-title">Harga Get Sword</h3>
           <ul class="service-list">
 
             <li class="service-item">
               <a href="https://wa.link/9stqq5">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Cursed Dual Katana</h4>
-
-                <p class="service-item-text">
-                  20.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="sword-cdk" data-field="title" contenteditable="false">Cursed Dual Katana</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="sword-cdk" data-field="price" contenteditable="false">20000</span></p>
+                </div>
               </a>
-
             </li>
 
-            <li class="service-item">
+            <li class="service-item is-featured">
               <a href="https://wa.link/93cssf">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">True Triple Katana</h4>
-
-                <p class="service-item-text">
-                  40.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="sword-ttk" data-field="title" contenteditable="false">True Triple Katana</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="sword-ttk" data-field="price" contenteditable="false">40000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/yfsjib">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Hallow Schyte</h4>
-
-                <p class="service-item-text">
-                  30.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="sword-hallow" data-field="title" contenteditable="false">Hallow Schyte</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="sword-hallow" data-field="price" contenteditable="false">30000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/4jr04q">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Shark Anchor</h4>
-
-                <p class="service-item-text">
-                  25.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="sword-shark" data-field="title" contenteditable="false">Shark Anchor</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="sword-shark" data-field="price" contenteditable="false">25000</span></p>
+                </div>
               </a>
-
             </li>
 
-            </a>
-
           </ul>
-
         </section>
 
       </article>
 
-                                    <!--
-        - #sworrd
-      -->
-
+      <!-- #Legendary Race -->
       <article class="blog" data-page="legendary race">
 
         <header>
-          <h2 class="h2 article-title">Legendary Race
+          <p class="eyebrow">Race</p>
+          <h2 class="h2 article-title">Legendary Race</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Legendary Race Adalah Race yang Tidak Bisa Di Dapatkan Melalui Gacha, Melainkan Ada Quest Tertentu
-          </p>
-
-          <p>
-            Skuyy..
+          <p>Legendary Race adalah race yang tidak bisa didapatkan melalui gacha, melainkan ada quest tertentu.</p>
+          <p>Skuyy..</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Get Legendary Race
-          </h3>
-
+          <h3 class="h3 service-title">Harga Get Legendary Race</h3>
           <ul class="service-list">
 
             <li class="service-item">
               <a href="https://wa.link/czj35g">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Race Cyborg</h4>
-
-                <p class="service-item-text">
-                  25.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="race-cyborg" data-field="title" contenteditable="false">Race Cyborg</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="race-cyborg" data-field="price" contenteditable="false">25000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/xwn82m">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Race Ghoul</h4>
-
-                <p class="service-item-text">
-                  25.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="race-ghoul" data-field="title" contenteditable="false">Race Ghoul</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="race-ghoul" data-field="price" contenteditable="false">25000</span></p>
+                </div>
               </a>
-
             </li>
 
-            </a>
-
           </ul>
-
         </section>
 
       </article>
 
-                                          <!--
-        - #gun
-      -->
-
+      <!-- #Mythical Gun -->
       <article class="blog" data-page="mythical gun">
 
         <header>
-          <h2 class="h2 article-title">Mythical Gun
+          <p class="eyebrow">Gun</p>
+          <h2 class="h2 article-title">Mythical Gun</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Untuk Saat Ini Baru Ada 1 Gun Yang Memiliki Tier Mythical, Yaitu Soul Guitar. Dan Untuk Mendapatkanya Kalian Memerlukan Level 2300 Untuk Memulai Questnya.
-          </p>
-
-          <p>
-            Skuyy..
+          <p>Untuk saat ini baru ada 1 gun yang memiliki tier Mythical, yaitu Soul Guitar. Untuk mendapatkannya kalian memerlukan level 2300 untuk memulai questnya.</p>
+          <p>Skuyy..</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Mythical Gun
-          </h3>
-
+          <h3 class="h3 service-title">Harga Mythical Gun</h3>
           <ul class="service-list">
 
-            <li class="service-item">
+            <li class="service-item is-featured">
               <a href="https://wa.link/sqija2">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Soul Guitar</h4>
-
-                <p class="service-item-text">
-                  20.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="gun-soulguitar" data-field="title" contenteditable="false">Soul Guitar</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="gun-soulguitar" data-field="price" contenteditable="false">20000</span></p>
+                </div>
               </a>
-
             </li>
 
-            </a>
-
           </ul>
-
         </section>
 
       </article>
 
-      <!--
-        - #DB
-      -->
-
+      <!-- #Darkblade V3 -->
       <article class="blog" data-page="darkblade v3">
 
         <header>
-          <h2 class="h2 article-title">Awakening Darkblade V3
+          <p class="eyebrow">Sword</p>
+          <h2 class="h2 article-title">Awakening Darkblade V3</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Darkblade V3 Adalah Evolusi Dari Darkblade V2, Dan Untuk Menjalankan Questnya Itu Sangan Susah, kalian Membutuhan 2 Orang Untuk Melakukanya.
-          </p>
-
-          <p>
-            Dan Ketika Kalian Mendapatkan Darkblade V3, Kalian Juga Akan Mendapatkan Tittle Slayer Of God
+          <p>Darkblade V3 adalah evolusi dari Darkblade V2, dan untuk menjalankan questnya sangat susah — kalian membutuhkan 2 orang untuk melakukannya.</p>
+          <p>Ketika kalian mendapatkan Darkblade V3, kalian juga akan mendapatkan title Slayer Of God.</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Awaken Darkblade
-          </h3>
-
+          <h3 class="h3 service-title">Harga Awaken Darkblade</h3>
           <ul class="service-list">
 
-            <li class="service-item">
+            <li class="service-item is-featured">
               <a href="https://wa.link/l0l86h">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Darkblade V3</h4>
-
-                <p class="service-item-text">
-                  50.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="db-v3" data-field="title" contenteditable="false">Darkblade V3</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="db-v3" data-field="price" contenteditable="false">50000</span></p>
+                </div>
               </a>
-
             </li>
 
-            </a>
-
           </ul>
-
         </section>
 
       </article>
 
-            <!--
-        - #Belly
-      -->
-
+      <!-- #Belly Fragmen -->
       <article class="blog" data-page="belly fragmen">
 
         <header>
-          <h2 class="h2 article-title">Belly & Fragmen
+          <p class="eyebrow">Currency</p>
+          <h2 class="h2 article-title">Belly &amp; Fragmen</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Belly Adalah Mata Uang Di Blox Fruit, yang Bisa Di Gunakan Untuk Membeli Fruit Atau Menggachanya. Sedangkan Fragmen Bisa Di Gunakan Untuk Gacha Race Dan Saat Akan MengAwakening Fruit Membutuhkan Fragmen.
-          </p>
-
-          <p>
-            Jika Belly Kalian Menyentuh 50.000.000 Akan Mendapatkan Tittle The Richest in the World
+          <p>Belly adalah mata uang di Blox Fruit, yang bisa digunakan untuk membeli fruit atau menggachanya. Sedangkan Fragmen bisa digunakan untuk gacha race dan saat akan meng-awakening fruit membutuhkan fragmen.</p>
+          <p>Jika belly kalian menyentuh 50.000.000 akan mendapatkan title The Richest in the World.</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Joki Belly & Fragmen
-          </h3>
-
+          <h3 class="h3 service-title">Harga Joki Belly &amp; Fragmen</h3>
           <ul class="service-list">
 
             <li class="service-item">
               <a href="https://wa.link/v588u3">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">1.000.000 Belly</h4>
-
-                <p class="service-item-text">
-                  2.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="belly-1m" data-field="title" contenteditable="false">1.000.000 Belly</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="belly-1m" data-field="price" contenteditable="false">2000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/fzwuiy">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">1.000 Fragmen</h4>
-
-                <p class="service-item-text">
-                  1.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="fragmen-1000" data-field="title" contenteditable="false">1.000 Fragmen</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="fragmen-1000" data-field="price" contenteditable="false">1000</span></p>
+                </div>
               </a>
-
             </li>
 
-            </a>
-
           </ul>
-
         </section>
 
       </article>
 
-                  <!--
-        - #Belly
-      -->
-
+      <!-- #Mythical Item -->
       <article class="blog" data-page="mythical item">
 
         <header>
-          <h2 class="h2 article-title">Mythical Item
+          <p class="eyebrow">Item</p>
+          <h2 class="h2 article-title">Mythical Item</h2>
+        </header>
 
         <section class="about-text">
-          <p>
-            Di Game Blox Fruit Sendiri Ada Beberapa Item Mythical Seperti Miror Fractral Dan Monster Magnet
-          </p>
-
-          <p>
-            Skuy...
+          <p>Di game Blox Fruit sendiri ada beberapa item Mythical seperti Mirror Fractral dan Monster Magnet.</p>
+          <p>Skuy...</p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">Harga Joki Mythical Item
-          </h3>
-
+          <h3 class="h3 service-title">Harga Joki Mythical Item</h3>
           <ul class="service-list">
 
             <li class="service-item">
               <a href="https://wa.link/simzb2">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mirror Fractral</h4>
-
-                <p class="service-item-text">
-                  15.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="item-mirror" data-field="title" contenteditable="false">Mirror Fractral</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="item-mirror" data-field="price" contenteditable="false">15000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/13s875">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Monster Magnet</h4>
-
-                <p class="service-item-text">
-                  15.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="item-magnet" data-field="title" contenteditable="false">Monster Magnet</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="item-magnet" data-field="price" contenteditable="false">15000</span></p>
+                </div>
               </a>
-
             </li>
 
             <li class="service-item">
               <a href="https://wa.link/ul2udc">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Valkyre Helmet</h4>
-
-                <p class="service-item-text">
-                  15.000
-                </p>
-              </div>
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title editable" data-id="item-valkyrie" data-field="title" contenteditable="false">Valkyre Helmet</h4>
+                  <p class="service-item-text"><span class="editable price-value" data-id="item-valkyrie" data-field="price" contenteditable="false">15000</span></p>
+                </div>
               </a>
-
             </li>
 
-            </a>
-
           </ul>
-
         </section>
 
       </article>
 
+    </div>
 
+  </main>
 
-
-
-  <!--
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/firebase-admin.js"></script>
 
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
